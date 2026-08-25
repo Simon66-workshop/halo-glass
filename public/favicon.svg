@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="8" fill="#E8D5BE"/>
-  <rect x="6" y="8" width="20" height="16" rx="4" fill="#FFFFFF"/>
-  <circle cx="12" cy="16" r="3" fill="#E8D5BE"/>
+  <rect width="32" height="32" rx="8" fill="#0B1224"/>
+  <text x="16" y="21.2" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" font-weight="800" letter-spacing="-0.9">
+    <tspan fill="#E7D7C2">66</tspan><tspan fill="#9B87FF">X</tspan>
+  </text>
 </svg>

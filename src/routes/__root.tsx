@@ -3,7 +3,7 @@ import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import appCss from "../styles.css?url";
 
-const APP_NAME = "Halo";
+const APP_NAME = "66X";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -13,9 +13,9 @@ export const Route = createRootRoute({
       { title: APP_NAME },
       {
         name: "description",
-        content: "Halo — a spatial glass UI kit. Frosted job cards, chips, and gradient actions for product surfaces that float in the world.",
+        content: "66X — spatial glass kit. Exclusive 66 × X mark on a live Lattice Boltzmann field.",
       },
-      { name: "theme-color", content: "#E7D7C2" },
+      { name: "theme-color", content: "#0B1224" },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },

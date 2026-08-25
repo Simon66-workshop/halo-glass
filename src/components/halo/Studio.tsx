@@ -5,12 +5,14 @@ import { DEFAULT_LOOK, NEBULA_LOOKS } from "@/lib/nebula";
 import { cn } from "@/lib/utils";
 import { CinematicHero } from "./CinematicHero";
 import { JobCard, useCardState } from "./JobCard";
-import { ChipGlyph, CompanyBadge, Sparkle } from "./marks";
+import { ChipGlyph, CompanyBadge, SixtySixMark, Sparkle } from "./marks";
 import { Scene } from "./Scene";
+import { XConstruct } from "./XConstruct";
 
 const NAV = [
   { href: "#scene", label: "Scene" },
   { href: "#lab", label: "Lab" },
+  { href: "#mark", label: "Mark" },
   { href: "#kit", label: "Kit" },
   { href: "#play", label: "Playground" },
 ];
@@ -101,6 +103,8 @@ export function Studio() {
         </div>
       </section>
 
+      <XConstruct />
+
       <section id="kit" className="relative px-4 pb-16 sm:px-8 sm:pb-20">
         <div className="mx-auto max-w-6xl">
           <Header
@@ -147,7 +151,7 @@ export function Studio() {
             </KitTile>
             <KitTile title="Company mark" note="White disc, 44px hit" src={SCENES[tone].src}>
               <div className="flex items-center gap-3">
-                {(["google", "north", "atelier", "solace"] as const).map((mark) => (
+                {(["sixtysix", "north", "atelier", "solace"] as const).map((mark) => (
                   <CompanyBadge key={mark} mark={mark} />
                 ))}
               </div>
@@ -171,7 +175,7 @@ export function Studio() {
       <Tokens copied={copied} onCopy={setCopied} />
 
       <footer className="px-4 py-12 text-center text-sm text-sand/50">
-        Halo glass on a D2Q9 Lattice Boltzmann field.
+        66X glass on a D2Q9 Lattice Boltzmann field.
       </footer>
     </div>
   );
@@ -186,11 +190,9 @@ function Nav({ tone }: { tone: SceneTone }) {
           tone === "light" ? "tone-light text-ink" : "text-white",
         )}
       >
-        <a href="#scene" className="flex items-center gap-2 rounded-full px-3 py-2">
-          <span className="grid size-7 place-items-center rounded-full bg-white/90 text-[11px] font-extrabold tracking-tight text-ink">
-            H
-          </span>
-          <span className="hidden pr-1 text-sm font-semibold sm:inline">Halo</span>
+        <a href="#scene" className="flex items-center gap-2 rounded-full px-2.5 py-1.5 sm:px-3">
+          <SixtySixMark className="h-7 w-12" ink="currentColor" x="#9B87FF" />
+          <span className="hidden pr-1 text-sm font-semibold sm:inline">66X</span>
         </a>
         {NAV.map((item) => (
           <a

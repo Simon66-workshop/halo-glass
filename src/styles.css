@@ -246,6 +246,33 @@
   }
 }
 
+@keyframes x-draw {
+  0% {
+    stroke-dashoffset: 90;
+  }
+  55%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.x-draw {
+  animation: x-draw 4.5s ease-out infinite;
+}
+
+.x-draw-delay {
+  stroke-dasharray: 80;
+  animation: x-draw 4.5s ease-out 0.45s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .x-draw,
+  .x-draw-delay {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
 @keyframes cta-shift {
   0%,
   100% {

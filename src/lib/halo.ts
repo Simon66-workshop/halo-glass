@@ -18,7 +18,7 @@ export const SCENES: Record<
 
 export type ChipTone = "violet" | "coral" | "teal" | "blue";
 export type ChipIcon = "bag" | "clock" | "pin" | "users" | "spark";
-export type CompanyMark = "google" | "north" | "atelier" | "solace" | "rivermark";
+export type CompanyMark = "sixtysix" | "north" | "atelier" | "solace" | "rivermark";
 
 export type JobChip = {
   tone: ChipTone;
@@ -43,8 +43,8 @@ export type JobCardData = {
 
 export const HERO_JOB: JobCardData = {
   id: "hero",
-  company: "Google",
-  mark: "google",
+  company: "66X",
+  mark: "sixtysix",
   badge: "Top job pick",
   title: "Product Designer",
   tagline: "Build products",
