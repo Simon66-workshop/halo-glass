@@ -1,0 +1,322 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-sand: #e7d7c2;
+  --color-sand-deep: #cbbba3;
+  --color-sand-dark: #8a7a66;
+  --color-ink: #3c342c;
+  --color-ink-soft: #6b5e50;
+  --color-love: #c9a8ff;
+  --color-chip-violet: #7c5cff;
+  --color-chip-coral: #ff7b4a;
+  --color-chip-teal: #2bbbad;
+  --color-chip-blue: #4c8dff;
+  --color-glass: rgb(255 255 255 / 0.16);
+  --color-glass-strong: rgb(255 255 255 / 0.32);
+  --radius-card: 2rem;
+  --radius-chip: 1.15rem;
+  --radius-pill: 999px;
+  --shadow-glass:
+    0 28px 80px rgb(8 12 28 / 0.45),
+    0 2px 0 rgb(255 255 255 / 0.5) inset,
+    0 -16px 32px rgb(255 255 255 / 0.08) inset;
+  --shadow-glass-light:
+    0 28px 80px rgb(80 110 150 / 0.18),
+    0 2px 0 rgb(255 255 255 / 0.9) inset,
+    0 -16px 32px rgb(255 255 255 / 0.35) inset;
+}
+
+@layer base {
+  html,
+  body,
+  #app {
+    min-height: 100%;
+  }
+
+  html {
+    background: #070b14;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background: #070b14;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    position: relative;
+    overflow: hidden;
+    background:
+      linear-gradient(
+        165deg,
+        rgb(255 255 255 / 0.2) 0%,
+        rgb(255 255 255 / 0.07) 42%,
+        rgb(255 255 255 / 0.12) 100%
+      );
+    backdrop-filter: blur(22px) saturate(165%);
+    -webkit-backdrop-filter: blur(22px) saturate(165%);
+    border: 1px solid rgb(255 255 255 / 0.48);
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(
+      155deg,
+      rgb(255 255 255 / 0.38) 0%,
+      rgb(255 255 255 / 0) 32%
+    );
+    opacity: 0.9;
+  }
+
+  .glass-read {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      linear-gradient(
+        180deg,
+        rgb(14 12 24 / 0.22) 0%,
+        rgb(10 8 20 / 0.4) 100%
+      );
+  }
+
+  .glass-panel.tone-light .glass-read {
+    background:
+      linear-gradient(
+        180deg,
+        rgb(255 255 255 / 0.28) 0%,
+        rgb(248 244 255 / 0.42) 100%
+      );
+  }
+
+  .glass-panel:not(.tone-light) .type-legible {
+    text-shadow:
+      0 1px 1px rgb(0 0 0 / 0.45),
+      0 6px 18px rgb(0 0 0 / 0.28);
+  }
+
+  .glass-sheen {
+    pointer-events: none;
+    position: absolute;
+    inset: -40%;
+    background: linear-gradient(
+      105deg,
+      transparent 38%,
+      rgb(255 255 255 / 0.14) 50%,
+      transparent 62%
+    );
+    animation: glass-sheen 7.5s ease-in-out infinite;
+  }
+
+  .glass-inset {
+    background: rgb(255 255 255 / 0.2);
+    border: 1px solid rgb(255 255 255 / 0.38);
+    box-shadow: 0 1px 0 rgb(255 255 255 / 0.4) inset;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-panel:not(.tone-light) .glass-inset {
+    background: rgb(8 6 18 / 0.28);
+    border: 1px solid rgb(255 255 255 / 0.28);
+  }
+
+  .glass-pill {
+    background: rgb(255 255 255 / 0.26);
+    border: 1px solid rgb(255 255 255 / 0.46);
+    box-shadow: 0 1px 0 rgb(255 255 255 / 0.5) inset;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .glass-panel:not(.tone-light) .glass-pill {
+    background: rgb(8 6 18 / 0.28);
+    border: 1px solid rgb(255 255 255 / 0.32);
+  }
+
+  .glass-panel.tone-light {
+    background:
+      linear-gradient(
+        165deg,
+        rgb(255 255 255 / 0.58) 0%,
+        rgb(255 255 255 / 0.38) 48%,
+        rgb(255 255 255 / 0.48) 100%
+      );
+    border: 1px solid rgb(255 255 255 / 0.78);
+    box-shadow: var(--shadow-glass-light);
+  }
+
+  .glass-panel.tone-light::before {
+    background: linear-gradient(
+      155deg,
+      rgb(255 255 255 / 0.75) 0%,
+      rgb(255 255 255 / 0) 36%
+    );
+  }
+
+  .tone-light .glass-inset {
+    background: rgb(255 255 255 / 0.5);
+    border: 1px solid rgb(255 255 255 / 0.7);
+  }
+
+  .tone-light .glass-pill,
+  .glass-pill.tone-light {
+    background: rgb(255 255 255 / 0.55);
+    border: 1px solid rgb(255 255 255 / 0.75);
+    color: var(--color-ink);
+  }
+
+  .starfield {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1.2px 1.2px at 12% 18%, rgb(255 255 255 / 0.9), transparent),
+      radial-gradient(1px 1px at 28% 64%, rgb(255 255 255 / 0.7), transparent),
+      radial-gradient(1.4px 1.4px at 46% 22%, rgb(255 255 255 / 0.85), transparent),
+      radial-gradient(1px 1px at 63% 78%, rgb(255 255 255 / 0.55), transparent),
+      radial-gradient(1.2px 1.2px at 81% 36%, rgb(255 255 255 / 0.8), transparent),
+      radial-gradient(1px 1px at 91% 58%, rgb(255 255 255 / 0.6), transparent);
+    animation: star-drift 18s linear infinite;
+    opacity: 0.55;
+  }
+
+  .cta-gradient {
+    background-image: linear-gradient(
+      90deg,
+      #5aa0ff 0%,
+      #9b7dff 38%,
+      #e07dff 68%,
+      #ff9a62 100%
+    );
+    background-size: 180% 100%;
+    color: white;
+    box-shadow:
+      0 8px 22px rgb(155 125 255 / 0.35),
+      0 1px 0 rgb(255 255 255 / 0.45) inset;
+    animation: cta-shift 6s ease-in-out infinite;
+  }
+
+  .cta-gradient:hover {
+    filter: brightness(1.06);
+  }
+
+  .hero-card {
+    animation: card-enter 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .is-floating {
+    animation: scene-float 6.4s ease-in-out infinite;
+  }
+
+  .sparkle-twinkle {
+    animation: sparkle 2.4s ease-in-out infinite;
+  }
+
+  .mark-pop {
+    animation: mark-pop 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@keyframes glass-sheen {
+  0%,
+  100% {
+    transform: translateX(-18%) rotate(8deg);
+  }
+  50% {
+    transform: translateX(18%) rotate(8deg);
+  }
+}
+
+@keyframes cta-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes scene-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(0.92) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12) rotate(18deg);
+  }
+}
+
+@keyframes mark-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes star-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-2%, 1.5%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-sheen,
+  .cta-gradient,
+  .hero-card,
+  .is-floating,
+  .sparkle-twinkle,
+  .mark-pop,
+  .starfield {
+    animation: none !important;
+  }
+}
